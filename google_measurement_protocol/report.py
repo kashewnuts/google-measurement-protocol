@@ -1,4 +1,4 @@
-from typing import Dict, Generator, Iterable
+from typing import Dict, Generator, Iterable, Optional
 
 import requests
 
@@ -16,7 +16,7 @@ def report(
 
 
 def _make_request(
-        data: Dict, extra_headers: Dict[str, str]) -> requests.Response:
+        data: Dict, extra_headers: Optional[Dict[str, str]]) -> requests.Response:
     return requests.post(
         TRACKING_URI, data=data, headers=extra_headers, timeout=5.0)
 
